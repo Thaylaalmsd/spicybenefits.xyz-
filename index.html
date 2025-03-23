@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Landing Page</title>
+    
+    <style>
+        /* Estilos da página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        .landing-container {
+            background: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body id="page-body">
+
+    <div class="landing-container">
+        <h1 id="title">You have been invited to an exclusive dating site.</h1> <!-- Título -->
+        <p id="paragraph">⚠️ Your access is almost guaranteed! Confirm your email to see photos and chat now.</p> <!-- Parágrafo -->
+        <button class="cta-button" id="cta-button" onclick="redirectUser()">Release Access Now 🔥</button> <!-- Botão -->
+    </div>
+
+    <script>
+        // === CONFIGURAÇÕES QUE VOCÊ PRECISA EDITAR ===
+        
+        var pageTitle = "You have been invited to an exclusive dating site."; 
+        var pageParagraph = "⚠️ Your access is almost guaranteed! Confirm your email to see photos and chat now.";
+        var buttonText = "Release Access Now 🔥";
+        var backgroundImage = "https://cdni.pornpics.com/460/7/668/30616758/30616758_003_955f.jpg"; 
+        
+        var offerUSA = "https://t.slext2.com/212319/8517/0"; 
+        var smartlink = "https://bggcdje.pixls.one/p/ye6cD"; 
+        
+        document.title = pageTitle; 
+        document.getElementById("title").innerText = pageTitle;
+        document.getElementById("paragraph").innerText = pageParagraph;
+        document.getElementById("cta-button").innerText = buttonText;
+        document.getElementById("page-body").style.backgroundImage = "url('" + backgroundImage + "')";
+
+        // === FUNÇÃO PARA REDIRECIONAMENTO POR LOCALIZAÇÃO ===
+        async function redirectUser() {
+            try {
+                let response = await fetch('https://ipinfo.io/json?token=54e5b8714e7b86');
+                let data = await response.json();
+                let country = data.country; 
+
+                if (country === "US") {
+                    window.location.href = offerUSA;
+                } else {
+                    window.location.href = smartlink;
+                }
+            } catch (error) {
+                console.error("Erro ao obter localização:", error);
+                window.location.href = smartlink; // Fallback
+            }
+        }
+
+        // === OPCIONAL: Redirecionamento Automático ao Carregar a Página ===
+        // window.onload = redirectUser;
+    </script>
+
+</body>
+</html>
