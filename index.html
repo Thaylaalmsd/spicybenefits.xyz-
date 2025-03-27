@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Landing Page</title>
+    <title>VIP Invitation - Exclusive Dating</title>
     
     <style>
         /* Estilos da página */
@@ -52,49 +52,33 @@
 <body id="page-body">
 
     <div class="landing-container">
-        <h1 id="title">You have been invited to an exclusive dating site.</h1> <!-- Título -->
-        <p id="paragraph">⚠️ Your access is almost guaranteed! Confirm your email to see photos and chat now.</p> <!-- Parágrafo -->
-        <button class="cta-button" id="cta-button" onclick="redirectUser()">Release Access Now 🔥</button> <!-- Botão -->
+        <h1 id="title">🔥 VIP Invitation: Meet Exclusive Singles Today!</h1> <!-- Título -->
+        <p id="paragraph">Your invitation is waiting! Unlock exclusive profiles and start chatting now. Just confirm your email!</p> <!-- Parágrafo -->
+        <button class="cta-button" id="cta-button" onclick="redirectUser()">Start Now – Meet Singles! 💖</button> <!-- Botão -->
     </div>
 
     <script>
-        // === CONFIGURAÇÕES QUE VOCÊ PRECISA EDITAR ===
+        // === CONFIGURAÇÕES ===
+        var backgroundImage = "https://images.unsplash.com/photo-1623039497026-00af61471107?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc1fHxiZWF1dGlmdWwlMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D"; // Atualize com a nova imagem
         
-        var pageTitle = "You have been invited to an exclusive dating site."; 
-        var pageParagraph = "⚠️ Your access is almost guaranteed! Confirm your email to see photos and chat now.";
-        var buttonText = "Release Access Now 🔥";
-        var backgroundImage = "https://cdni.pornpics.com/460/7/668/30616758/30616758_003_955f.jpg"; 
-        
-        var offerUSA = "https://bggcdje.pixls.one/p/ye6cD"; 
+        var offerUSA = "https://t.slext2.com/212319/8517/0"; 
         var smartlink = "https://bggcdje.pixls.one/p/ye6cD"; 
         
-        document.title = pageTitle; 
-        document.getElementById("title").innerText = pageTitle;
-        document.getElementById("paragraph").innerText = pageParagraph;
-        document.getElementById("cta-button").innerText = buttonText;
         document.getElementById("page-body").style.backgroundImage = "url('" + backgroundImage + "')";
 
-        // === FUNÇÃO PARA REDIRECIONAMENTO POR LOCALIZAÇÃO ===
+        // === FUNÇÃO PARA REDIRECIONAMENTO ===
         async function redirectUser() {
             try {
                 let response = await fetch('https://ipinfo.io/json?token=54e5b8714e7b86');
                 let data = await response.json();
                 let country = data.country; 
 
-                if (country === "US") {
-                    window.location.href = offerUSA;
-                } else {
-                    window.location.href = smartlink;
-                }
+                window.location.href = (country === "US") ? offerUSA : smartlink;
             } catch (error) {
                 console.error("Erro ao obter localização:", error);
                 window.location.href = smartlink; // Fallback
             }
         }
-
-        // === OPCIONAL: Redirecionamento Automático ao Carregar a Página ===
-        // window.onload = redirectUser;
     </script>
-
 </body>
 </html>
